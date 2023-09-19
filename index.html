@@ -8,4 +8,10 @@
 <body>
     <h1>Welcome!</h1>
 </body>
+<script>
+    const { host, protocol } = window.location;
+    const proto = protocol === "https:" ? "wss://" : "ws://"
+    const ws = new WebSocket(proto + host);
+    ws.onmessage = event => console.log("Data received:", event.data)
+</script>
 </html>
